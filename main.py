@@ -26,7 +26,7 @@ app.add_middleware(
     # The local development server origin is included for testing.
     allow_origins=[
         "http://127.0.0.1:5500",
-        "https://YOUR_NETLIFY_URL" 
+        "https://rcidshacker-portfolio.netlify.app" 
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST"],  # Only allow the methods that are actually used
