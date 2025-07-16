@@ -1,0 +1,596 @@
+/* style.css */
+
+/* 
+ * Table of Contents:
+ * 1. Root Variables
+ * 2. Body and Typography
+ * 3. Navbar
+ * 4. Hero Section
+ * 5. Buttons
+ * 6. Sections
+ * 7. Cards (General, Skill, Project)
+ * 8. Contact Form
+ * 9. Footer and Social Icons
+ * 10. Animations
+ * 11. Scroll-to-top Button
+ * 12. Floating Dock
+ * 13. Confirmation Popup
+*/
+
+/* 1. Root Variables */
+:root {
+    --primary-color: #6e44ff;
+    --secondary-color: #f0f0f0;
+    --text-color: #e0e0e0; /* Lightened for dark background */
+    --background-color: #0a0a0a; /* Darker background */
+    --card-background: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+/* 2. Body and Typography */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 3. Navbar */
+.navbar {
+    padding: 1rem 0;
+    background-color: transparent;
+    transition: background-color 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.navbar-scrolled {
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* 4. Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+#dot-grid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+    gap: 10px;
+    z-index: -1;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.hero-section h1 {
+    font-family: 'Audiowide', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: none;
+    color: #fff;
+    display: inline-block;
+    border-right: 3px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hero-section h1.typing-done {
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgba(255, 255, 255, 0.75); }
+}
+
+.hero-section .lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+/* 5. Buttons */
+.btn-glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-glass:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5a32d1;
+    border-color: #5a32d1;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 6. Sections */
+section {
+    padding: 8rem 0;
+    position: relative;
+}
+
+#about .text-secondary, 
+#skills .text-dark, 
+#projects .text-dark, 
+#contact .text-secondary, 
+#contact .form-label {
+    color: #ccc !important;
+}
+
+.section-heading {
+    font-family: 'Audiowide', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+#about .img-fluid {
+    transition: transform 0.3s ease-in-out;
+}
+
+#about .img-fluid:hover {
+    transform: scale(1.05);
+}
+
+/* 7. Cards (General, Skill, Project) */
+.card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    background-color: var(--card-background);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.skill-card {
+    border-color: transparent;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: radial-gradient(
+        150px circle at var(--mouse-x) var(--mouse-y),
+        var(--primary-color),
+        transparent
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    min-height: 300px;
+}
+
+.project-card .card-content {
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover .card-content {
+    opacity: 1;
+}
+
+.project-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+.project-card:hover .project-letter {
+    opacity: 0;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.2),
+        rgba(0, 255, 255, 0.2) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover::before {
+    transform: translateX(100%);
+}
+
+/* The following selectors are redundant as the base .project-card now has the background color */
+/* .project-card-1, .project-card-2, .project-card-3 { background-color: #1a1a1a; } */
+
+.project-card-1::before {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(110, 68, 255, 0.2),
+        rgba(110, 68, 255, 0.2) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+.project-card-2::before {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(138, 43, 226, 0.2),
+        rgba(138, 43, 226, 0.2) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+.project-card-3::before {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(147, 112, 219, 0.2),
+        rgba(147, 112, 219, 0.2) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+.project-card-4::before {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(123, 104, 238, 0.2),
+        rgba(123, 104, 238, 0.2) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+.project-card .card-title {
+    font-family: 'Audiowide', cursive;
+    color: #fff;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* 8. Contact Form */
+.contact-form-container {
+    background-color: var(--card-background);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    position: relative;
+    z-index: 2;
+}
+
+.form-control {
+    border-radius: 50px;
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(110, 68, 255, 0.25);
+}
+
+textarea.form-control {
+    border-radius: var(--border-radius);
+}
+
+/* 9. Footer and Social Icons */
+.social-icons a {
+    font-size: 2rem;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+footer {
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #aaa;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* 10. Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Apply animations with a class to control when they trigger */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+}
+
+.slide-in-up {
+    transform: translateY(50px);
+}
+
+.slide-in-up.is-visible {
+    transform: translateY(0);
+}
+
+/* 11. Scroll-to-top Button */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius);
+    font-size: 24px;
+    transition: all 0.3s ease;
+    display: none; /* Initially hidden, shown via JS */
+    align-items: center;
+    justify-content: center;
+}
+
+#scrollTopBtn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 12. Floating Dock */
+.floating-dock-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.floating-dock {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dock-item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.dock-item:hover {
+    transform: scale(1.2) translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dock-item .tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.dock-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 13. Confirmation Popup */
+.confirmation-popup {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: bottom 0.5s ease-in-out, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    z-index: 101;
+}
+
+.confirmation-popup.show {
+    bottom: 5rem;
+}
+
+.confirmation-popup.success {
+    background-color: rgba(0, 255, 127, 0.1);
+    color: #00ff7f;
+    border: 1px solid rgba(0, 255, 127, 0.2);
+}
+
+.confirmation-popup.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
