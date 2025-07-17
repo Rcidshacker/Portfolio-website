@@ -46,7 +46,7 @@ class Project(BaseModel):
 
 # API endpoint to get a list of featured GitHub projects
 @app.get("/api/projects", response_model=List[Project])
-def get_projects():
+def get_projects() -> List[Project]:
     """
     Fetches a curated list of projects from GitHub and returns their details.
     """
@@ -63,7 +63,7 @@ def get_projects():
         "sentiment-analysis-app"
     ]
     
-    projects: List[Dict[str, Any]] = []
+    projects: List[Project] = []
     # Iterate over the project names and fetch their data from the GitHub API
     for name in project_names:
         response = requests.get(f"https://api.github.com/repos/{GITHUB_USERNAME}/{name}", headers=headers)
@@ -73,12 +73,12 @@ def get_projects():
             languages_response = requests.get(repo["languages_url"], headers=headers)
             languages: Dict[str, Any] = languages_response.json() if languages_response.status_code == 200 else {}
             
-            projects.append({
-                "name": repo["name"],
-                "description": repo["description"],
-                "html_url": repo["html_url"],
-                "languages": languages
-            })
+            projects.append(Project(
+                name=repo["name"],
+                description=repo["description"],
+                html_url=repo["html_url"],
+                languages=languages
+            ))
             
     return projects
 
