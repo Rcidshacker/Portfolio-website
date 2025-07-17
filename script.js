@@ -2,7 +2,7 @@
 
 // The base URL for your backend API.
 // When you deploy your backend, you will replace this with your live backend URL.
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'https://portfolio-website-gzeg.onrender.com';
 
 /**
  * Smooth scrolling for navigation links.

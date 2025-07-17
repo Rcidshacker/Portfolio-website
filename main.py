@@ -50,6 +50,9 @@ def get_projects():
     """
     Fetches a curated list of projects from GitHub and returns their details.
     """
+    if not GITHUB_TOKEN:
+        return []
+        
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     
     # A specific list of project names to be showcased on the portfolio
