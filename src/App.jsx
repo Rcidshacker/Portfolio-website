@@ -44,11 +44,7 @@ function App() {
           <Contact />
         </main>
 
-        {/* Decorative Background Elements */}
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[10%] left-[5%] w-[30%] h-[30%] bg-red-900/5 rounded-full blur-[150px]" />
-          <div className="absolute bottom-[10%] right-[5%] w-[30%] h-[30%] bg-orange-900/5 rounded-full blur-[150px]" />
-        </div>
+        {/* Decorative Background Elements - Removed per user request */}
 
         {/* Resume Modal */}
         <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
