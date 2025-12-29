@@ -86,10 +86,10 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            {/* Background ambient mesh */}
+            {/* Background ambient mesh - very subtle */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-primary/8 rounded-full blur-[150px]" />
-                <div className="absolute bottom-[20%] right-[20%] w-[500px] h-[500px] bg-accent/8 rounded-full blur-[150px]" style={{ animationDelay: '-3s' }} />
+                <div className="absolute top-[30%] left-[30%] w-[200px] h-[200px] bg-primary/[0.03] rounded-full blur-[200px]" />
+                <div className="absolute bottom-[30%] right-[30%] w-[250px] h-[250px] bg-accent/[0.03] rounded-full blur-[200px]" />
             </div>
 
             {/* Scroll Indicator */}
