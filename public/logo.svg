@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444" />
+      <stop offset="100%" style="stop-color:#f97316" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Shape: Hexagon-like -->
+  <path d="M50 10 L85 30 V70 L50 90 L15 70 V30 Z" stroke="url(#grad)" stroke-width="4" fill="#0a0a0a" />
+  
+  <!-- Letter R / Neural Node Representation -->
+  <path d="M35 30 V70" stroke="white" stroke-width="5" stroke-linecap="round" />
+  <path d="M35 30 H55 C65 30 65 50 55 50 H35" stroke="white" stroke-width="5" stroke-linecap="round" />
+  <path d="M50 50 L65 70" stroke="white" stroke-width="5" stroke-linecap="round" />
+  
+  <!-- Tech Accents: Dots representing nodes -->
+  <circle cx="35" cy="30" r="3" fill="#ef4444" />
+  <circle cx="35" cy="70" r="3" fill="#f97316" />
+  <circle cx="65" cy="70" r="3" fill="white" />
+  
+  <!-- Glow effect -->
+  <circle cx="50" cy="50" r="30" stroke="url(#grad)" stroke-width="0.5" opacity="0.3" />
+</svg>
