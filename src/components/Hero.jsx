@@ -88,8 +88,8 @@ const Hero = () => {
 
             {/* Background ambient mesh */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-float" />
-                <div className="absolute bottom-[20%] right-[20%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] mix-blend-screen animate-float" style={{ animationDelay: '-3s' }} />
+                <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-primary/8 rounded-full blur-[150px]" />
+                <div className="absolute bottom-[20%] right-[20%] w-[500px] h-[500px] bg-accent/8 rounded-full blur-[150px]" style={{ animationDelay: '-3s' }} />
             </div>
 
             {/* Scroll Indicator */}
