@@ -4,7 +4,6 @@
 
 A high-performance, interactive portfolio website built with **React**, **Framer Motion**, and **Tailwind CSS**. Designed to showcase projects, skills, and certifications with a premium, macOS-inspired aesthetic.
 
-![Portfolio Preview](public/preview-image.png) *<!-- Add a screenshot later if possible -->*
 
 ## ✨ Features
 
