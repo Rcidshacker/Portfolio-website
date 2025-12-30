@@ -40,14 +40,7 @@ const CustomCursor = () => {
     return (
         <>
             {/* Spotlight Effect */}
-            <div
-                ref={spotlightRef}
-                className="fixed top-0 left-0 w-[200px] h-[200px] pointer-events-none z-[9998] hidden md:block will-change-transform"
-                style={{
-                    background: 'radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, rgba(239, 68, 68, 0.04) 40%, transparent 70%)',
-                    filter: 'blur(30px)',
-                }}
-            />
+
             {/* Center Dot */}
             <div
                 ref={dotRef}

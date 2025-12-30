@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Certificates from './components/Certificates';
+import Achievements from './components/Achievements';
 import CustomCursor from './components/CustomCursor';
 import ResumeModal from './components/ResumeModal';
 
@@ -33,14 +35,21 @@ function App() {
 
   return (
     <ResumeContext.Provider value={{ isResumeOpen, openResume: () => setIsResumeOpen(true), closeResume: () => setIsResumeOpen(false) }}>
-      <div className="bg-background text-text min-h-screen selection:bg-accent selection:text-white cursor-none">
-        <CustomCursor />
+      <div className="bg-background text-text min-h-screen selection:bg-accent selection:text-white">
         <Navbar />
 
         <main className="relative z-10 w-full overflow-hidden">
           <Hero />
           <Skills />
           <Projects />
+
+          <section className="px-4 py-20 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <Certificates />
+              <Achievements />
+            </div>
+          </section>
+
           <Contact />
         </main>
 
